@@ -1,15 +1,17 @@
-const readline = require('readline');
+const { rl, wrapper } = require('./rl');
 
-module.exports = () => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  rl.question('What do you think of Node.js? ', answer => {
-    // TODO: Log the answer in a database
-    console.log(`Thank you for your valuable feedback: ${answer}`);
-
-    rl.close();
-  });
+module.exports = async () => {
+  let correct = 0;
+  let count = 0;
+  for (let i = 0; i < 4; i++) {
+    const a = Math.floor(Math.random() * 10);
+    const b = Math.floor(Math.random() * 10);
+    const result = await wrapper(a, b);
+    count++;
+    if (result) {
+      correct++;
+    }
+  }
+  rl.close();
+  console.log('correct ' + correct + ' of ' + count);
 };

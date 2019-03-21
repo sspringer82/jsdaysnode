@@ -1,10 +1,13 @@
 console.log('hello world');
+const { sayHello } = require('./module');
 
-const http = require('http');
+console.log(sayHello());
 
-http
-  .createServer((req, res) => {
-    res.end('Hello World');
-    // process.exit(1);
-  })
-  .listen(8080);
+// const http = require('http');
+
+// http
+//   .createServer((req, res) => {
+//     res.end('Hello World');
+//     // process.exit(1);
+//   })
+//   .listen(8080);

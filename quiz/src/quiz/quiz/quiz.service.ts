@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Quiz } from '../quiz.interface';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Quiz } from '../quiz.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class QuizService {
@@ -12,11 +14,16 @@ export class QuizService {
       correct: 2,
     },
   ];
+  constructor(
+    @InjectRepository(Quiz)
+    private readonly quizRepository: Repository<Quiz>,
+  ) {}
 
-  getQuiz(id: number): Quiz {
-    const quiz = this.quiz.find(q => q.id === id);
-    delete quiz.correct;
-    return quiz;
+  getQuiz(id: number): Promise<Quiz> {
+    return this.quizRepository.findOne(id);
+    // const quiz = this.quiz.find(q => q.id === id);
+    // delete quiz.correct;
+    // return quiz;
   }
 
   solve(body: { answer: number }, id: number): boolean {

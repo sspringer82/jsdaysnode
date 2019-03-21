@@ -7,7 +7,7 @@ export class QuizController {
   constructor(private readonly quizService: QuizService) {}
 
   @Get(':id')
-  getQuiz(@Param('id') id: string): Quiz {
+  getQuiz(@Param('id') id: string): Promise<Quiz> {
     return this.quizService.getQuiz(parseInt(id, 10));
   }
 

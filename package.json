@@ -20,5 +20,8 @@
   "homepage": "https://github.com/sspringer82/jsdaysnode#readme",
   "dependencies": {
     "commander": "^2.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^11.11.4"
   }
 }

@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/sspringer82/jsdaysnode/issues"
   },
-  "homepage": "https://github.com/sspringer82/jsdaysnode#readme"
+  "homepage": "https://github.com/sspringer82/jsdaysnode#readme",
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
 }

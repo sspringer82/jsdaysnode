@@ -6,7 +6,8 @@ const rl = readline.createInterface({
 });
 
 function wrapper(a, b) {
-  const question = a + ' + ' + b + ' = ';
+  // const question = a + ' + ' + b + ' = ';
+  const question = `${a} + ${b} = `;
   return new Promise((resolve, reject) => {
     rl.question(question, answer => {
       if (a + b === parseInt(answer, 10)) {
